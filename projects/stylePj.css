@@ -1,0 +1,154 @@
+html {
+    --color-accent: oklch(90% 20% 50);
+    accent-color: var(--color-accent);
+  
+    --color-accent2: oklch(50% 60, 360);
+    color-scheme: dark;
+  }
+  .color-scheme{
+    position: absolute;
+    right: 1rem;
+    top: 5px;
+  }
+  
+  body {
+    /* Set line height to 1.5 times the font size
+         and use the OS’s UI font as the website font
+       */
+    font: 100%/1.5 system-ui;
+    max-width: 80ch;
+    margin-inline: auto;
+    padding: 5ch;
+    background-color: var(--color-accent2);
+  }
+  
+  nav {
+  display: flex;
+  margin-bottom: 2ch;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  /**border-bottom-color: oklch(80% 3% 200);**/
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+  }
+  
+  nav a:hover{
+    border-bottom: 2px solid var(--color-accent);
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  }
+  img {
+    width: 250px;   /* Set the width */
+    height: 175px;  /* Set the height */
+  }
+  a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  
+  }
+  a[class="current"]{
+  border-bottom: 0.4em solid var(--border-color);/**oklch(80% 3% 200)**/
+  }
+  
+  .projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 3ch;
+  }
+  
+  
+  .projects article {
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: calc(20px + 10%);
+  }
+  h1 {
+    font-size: 4em;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 0.5em;
+  }
+  p {
+    font-size: 0.025em;
+  }
+  
+  /* lab5 step 1 */
+  #projects-pie-plot {
+    width: 100%; 
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+  }
+  
+  .legend{
+    list-style: none;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    border: 1px solid rgb(74, 219, 206); /* Add a light border around the legend */
+    border-radius: 8px;      /* Optional: Add rounded corners to the border */
+  }
+  
+  /*lab 5 2.2*/
+  #label{
+    display: flex;
+    align-items: center;
+    margin: 3px;
+  }
+  .swatch {
+    display: inline-block; /* Make span behave like a block element to allow width/height */
+    width: 10px;           /* Set the width of the swatch */
+    height: 10px;          /* Set the height of the swatch */
+    background-color: var(--color); /* Set the background color */
+    border-radius: 50%;
+  }
+  
+  /*lab5 2.3*/
+  .container{
+    display: flex;  
+    justify-content: space-between; /* Space out the chart and the legend */
+    align-items: flex-start;    /* Align both items to the top */
+    gap: 10px;  
+  }
+  
+  .searchBar{
+    width: 100%;
+    max-width: 30em;
+    height: 3em;
+  }
+  
+  /*lab5 step5.1*/
+  &:has(path:hover){ 
+    path:not(:hover){
+      opacity: 0.5;
+    }
+  }
+  path{
+    transition: 600ms;
+    cursor: pointer;
+  }
+  
+  /*lab5 step5.2*/
+  /* .selected {
+    --color: oklch(60% 45% 0)!important;
+  
+    &:is(path) {
+      fill: var(--color);
+    }
+  } */
+  
+  .selected {
+    --color: oklch(60% 45% 0) !important;
+  
+    &:is(path) {
+      fill: var(--color);
+    }
+  }
